@@ -1,63 +1,124 @@
 <?php
-
+// Definition de la classe Seau
 class Seau
 {
-  // les proprietes
+  // Les proprietes
   private $matiere;
   private $couleur;
   private $contenance;
+  private $contenu;
+  // Le constructeur
+  public function __construct( $sMatiere, $sCouleur, $iContenance )
+  {
 
-  // le constructeur __construct mettre double enderscore
-  public function __construct($sMatiere, $sCouleur, $iContenance){
-    echo "Execution de constructeur\n";
+    echo "Execution du constructeur\n";
+
     $bErreur = false;
 
     if (is_string($sMatiere)) {
+
       $this->matiere = $sMatiere;
     } else {
 
       $bErreur = true;
-      echo "Erreur de la matiere\n";
+      echo "Il y a une erreur dans la matiere";
     }
 
     if (is_string($sCouleur)) {
+
       $this->couleur = $sCouleur;
+
     } else {
 
       $bErreur = true;
-      echo "Erreur de la couleur\n";
+      echo "Il y a une erreur dans la couleur";
 
     }
 
     if (is_int($iContenance) &&
-       $iContenance > 0 &&
-       $iContenance <= 10
-       ) {
+        $iContenance > 0 &&
+        $iContenance <= 10
+      ) {
 
-       $this->contenance = $iContenance;
+        $this->contenance = $iContenance;
 
     } else {
-      $bErreur = true;
-      echo "Erreur de la contenance\n";
+
+        $bErreur = true;
+        echo "Il y a une erreur dans la contenance";
+
     }
 
-  /*  if ($bErreur) {
-      echo "il y a une erreur dans la creation de l'objet\n";
-    }*/
+    /*if ($bErreur) {
+
+      echo "Il y a une erreur dans la creation de l'objet\n";
+    }
+
+    $this->contenu = 0;
+  }*/
+
+  // Les methodes
+  public function remplir( $iLitre )
+  {
+    echo "Execution de la methode remplir $iLitre litres\n";
+
+    if (
+      is_int($iLitre) &&
+      $iLitre > 0 &&
+      $iLitre <= 10
+    ) {
+
+      $this->contenu += $iLitre;
+
+      if ($this->contenu > $this->contenance) {
+
+        $this->contenu = $this->contenance;
+
+        echo "Tu t'es mouillé les pieds\n";
+      }
+
+    } else {
+
+      echo "Il y a une erreur dans le parametre\n";
+    }
   }
 
-  // les methodes
-  public function remplir(){
-    echo "Execution de la methode remplir\n";
+  public function vider( $iLitre )
+  {
+    echo "Execution de la methode vider $iLitre litres\n";
+
+    $iLitreVide = 0;
+
+    if (
+      is_int($iLitre) &&
+      $iLitre > 0 &&
+      $iLitre <= 10
+    ) {
+
+    if ($iLitre > $this->contenu) {
+
+        $iLitreVide = $this->contenu;
+
+        $this->contenu = 0;
+
+      } else {
+
+        $iLitreVide = $iLitre;
+        $this->contenu -= $iLitre;
+      }
+    } else {
+
+      echo "Il y a une erreur dans le parametre\n";
+    }
+
+    return($iLitreVide);
   }
 
-  public function vider($iLittre){
-    echo "Execution de la methode vider\n";
-
-    $iLittre = 
-  }
-
-  public function decrire(){
-    echo "Le seau est en ".$this->matiere." de couleur ".$this->couleur." contenant ".$this->contenance." litres\n";
+  public function decrire()
+  {
+    echo  "Le seau en ".$this->matiere.
+          " de couleur ".$this->couleur.
+          " contient ".$this->contenance." litres. ";
+    echo "Le contenu est ".$this->contenu." litres.".PHP_EOL;
   }
 }
