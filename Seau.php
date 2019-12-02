@@ -70,7 +70,7 @@ class Seau
 
       $this->contenu += $iLitre;
 
-      if ($this->contenu > $this->contenance) {
+    if ($this->contenu > $this->contenance) {
 
         $this->contenu = $this->contenance;
 
