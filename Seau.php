@@ -51,8 +51,10 @@ class Seau
     echo "Execution de la methode remplir\n";
   }
 
-  public function vider(){
+  public function vider($iLittre){
     echo "Execution de la methode vider\n";
+
+    $iLittre = 
   }
 
   public function decrire(){
