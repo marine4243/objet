@@ -15,13 +15,18 @@ class Seau
     if (is_string($sMatiere)) {
       $this->matiere = $sMatiere;
     } else {
+
       $bErreur = true;
+      echo "Erreur de la matiere\n";
     }
 
     if (is_string($sCouleur)) {
       $this->couleur = $sCouleur;
     } else {
+
       $bErreur = true;
+      echo "Erreur de la couleur\n";
+
     }
 
     if (is_int($iContenance) &&
@@ -33,11 +38,12 @@ class Seau
 
     } else {
       $bErreur = true;
+      echo "Erreur de la contenance\n";
     }
 
-    if ($bErreur) {
+  /*  if ($bErreur) {
       echo "il y a une erreur dans la creation de l'objet\n";
-    }
+    }*/
   }
 
   // les methodes

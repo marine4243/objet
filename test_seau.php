@@ -3,7 +3,7 @@
 require_once("Seau.php");
 
 // declaration d'une instance
-$monSeau = new seau("zinc", "grise", 10);
+$monSeau = new seau("zinc", "grise", "fhhf");
 /*$monSeau->contenance = 10;
 $monSeau->matiere = "zinc";
 $monSeau->couleur = "gris";*/
